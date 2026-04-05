@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="index.html" class="hover:text-amber-200 transition">Beranda</a></li>
                 <li>
                     <a href="kriteria-uu.html" class="bg-amber-800 hover:bg-amber-700 px-3 py-2 rounded text-xs font-bold uppercase tracking-tighter border border-amber-600 transition">
-                        Kriteria UU
+                        Kriteria Cagar Budaya
                     </a>
                 </li>
             </ul>
