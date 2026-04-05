@@ -1,27 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Navigasi / Header
+    // Navigasi / Header yang sudah diperbaiki untuk Mobile
     const navbar = `
-    <nav class="bg-amber-900 text-white p-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Branding Section -->
-            <a href="index.html" class="flex flex-col group">
-                <h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase leading-none">
+    <nav class="bg-amber-900 text-white p-3 md:p-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center gap-2">
+            
+            <!-- Branding Section (Kiri) -->
+            <a href="index.html" class="flex flex-col min-w-0">
+                <h1 class="text-sm md:text-xl font-bold tracking-widest uppercase leading-tight truncate">
                     BOJONEGORO <span class="font-light text-amber-200">HERITAGE</span>
                 </h1>
-                <span class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-amber-100/80 mt-1 font-semibold group-hover:text-white transition-colors">
+                <span class="text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] uppercase text-amber-100/80 font-semibold truncate">
                     Museum Rajekwesi
                 </span>
             </a>
 
-            <!-- Menu Section -->
-            <ul class="flex space-x-6 text-sm md:text-base items-center">
-                <li><a href="index.html" class="hover:text-amber-200 transition">Beranda</a></li>
-                <li>
-                    <a href="kriteria-uu.html" class="bg-amber-800 hover:bg-amber-700 px-3 py-2 rounded text-xs font-bold uppercase tracking-tighter border border-amber-600 transition">
-                        Kriteria Cagar Budaya
-                    </a>
-                </li>
-            </ul>
+            <!-- Menu Section (Kanan) -->
+            <div class="flex items-center space-x-2 md:space-x-6 shrink-0">
+                <a href="index.html" class="hidden sm:block hover:text-amber-200 transition text-sm font-medium">Beranda</a>
+                <a href="kriteria-uu.html" class="bg-amber-700 hover:bg-amber-600 px-2 py-1.5 md:px-4 md:py-2 rounded text-[10px] md:text-xs font-bold uppercase tracking-tighter border border-amber-500/50 transition whitespace-nowrap shadow-sm">
+                    Kriteria UU
+                </a>
+            </div>
+
         </div>
     </nav>`;
 
