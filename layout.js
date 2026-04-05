@@ -3,12 +3,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const navbar = `
     <nav class="bg-amber-900 text-white p-4 sticky top-0 z-50 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-widest uppercase">
-                BOJONEGORO <span class="font-light text-amber-200">HERITAGE</span>
+            <!-- Branding Section -->
+            <a href="index.html" class="flex flex-col group">
+                <h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase leading-none">
+                    BOJONEGORO <span class="font-light text-amber-200">HERITAGE</span>
+                </h1>
+                <span class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-amber-100/80 mt-1 font-semibold group-hover:text-white transition-colors">
+                    Museum Rajekwesi
+                </span>
             </a>
-            <ul class="flex space-x-6 text-sm md:text-base">
-                <li><a href="index.html" class="hover:text-amber-200">Beranda</a></li>
-                <li><a href="kriteria-uu.html" class="hover:text-amber-200 font-semibold text-amber-300">Kriteria UU</a></li>
+
+            <!-- Menu Section -->
+            <ul class="flex space-x-6 text-sm md:text-base items-center">
+                <li><a href="index.html" class="hover:text-amber-200 transition">Beranda</a></li>
+                <li>
+                    <a href="kriteria-uu.html" class="bg-amber-800 hover:bg-amber-700 px-3 py-2 rounded text-xs font-bold uppercase tracking-tighter border border-amber-600 transition">
+                        Kriteria UU
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>`;
