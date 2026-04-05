@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Footer
     const footer = `
     <footer class="bg-stone-900 text-stone-400 py-8 text-center mt-12">
-        <p>&copy; 2026 Dinas Kebudayaan dan Pariwisata Kabupaten Bojonegoro. <br> Bidang Kebudayaan <br> Museum Rajekwesi </p>
+        <p>&copy; 2026 Dinas Kebudayaan dan Pariwisata Kabupaten Bojonegoro. <br> Bidang Kebudayaan  </p>
         <div class="mt-4 space-x-4">
             <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
             <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
