@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const favicon = document.createElement('link');
     favicon.rel = 'icon';
     favicon.type = 'image/png'; // atau 'image/x-icon'
-    favicon.href = '/images/lg.ico'; // Ganti dengan path/URL logo Anda
+    favicon.href = '/lg.ico'; // Ganti dengan path/URL logo Anda
     document.head.appendChild(favicon);
     const navbar = `
     <nav class="bg-amber-900 text-white p-3 md:p-4 sticky top-0 z-50 shadow-md">
