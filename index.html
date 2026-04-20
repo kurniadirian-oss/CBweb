@@ -13,14 +13,14 @@
             background-size: cover;
             background-position: center;
         }
+        /* Tambahan untuk memastikan tidak ada scroll horizontal liar */
+        body { overflow-x: hidden; }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans">
 
-    <!-- Navbar -->
     <div id="nav-placeholder"></div>
 
-    <!-- Hero Section -->
     <header id="home" class="hero-bg h-[600px] flex items-center justify-center text-center text-white px-4">
         <div>
             <h2 class="text-4xl md:text-6xl font-serif font-bold mb-4">Mengenal Cagar Budaya Bojonegoro</h2>
@@ -36,84 +36,84 @@
             <h2 class="text-3xl font-bold border-b-4 border-amber-600 inline-block pb-2">Daftar Cagar Budaya</h2>
         </div>
 
-        <!-- Cards Grid -->
         <div class="grid md:grid-cols-2 gap-8">
-            
-            <!-- Site 1: Rumah Tua Padangan -->
+            <!-- Site 1 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
                 <img src="/images/rumah-tua.jpeg" alt="Rumah Tua Padangan" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="font-bold text-xl mb-2 text-amber-800">Rumah Tua Padangan</h3>
-                    <p class="text-stone-600 text-sm mb-4"> Kawasan rumah bergaya kolonial dan Tionghoa yang mencerminkan kejayaan ekonomi Padangan di masa lalu sebagai pusat perdagangan di tepian Bengawan Solo.</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Sejarah dan Budaya</span>
-                    <a href="rumah-tua.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+                    <p class="text-stone-600 text-sm mb-4"> Kawasan rumah bergaya kolonial dan Tionghoa yang mencerminkan kejayaan ekonomi Padangan di masa lalu.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Sejarah</span>
+                        <a href="rumah-tua.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Detail</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Site 2: Perahu Besi -->
+            <!-- Site 2 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
                 <img src="/images/perahubesi.jpg" alt="Perahu Besi Ngraho" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="font-bold text-xl mb-2 text-amber-800">Perahu Besi Ngraho</h3>
-                    <p class="text-stone-600 text-sm mb-4">Temuan benda cagar budaya berupa perahu berbahan besi peninggalan zaman kolonial yang ditemukan di dasar sungai Bengawan Solo, wilayah Desa Ngraho, Kecamatan Gayam</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Bengawan Solo</span>
-                    <a href="perahu-besi.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+                    <p class="text-stone-600 text-sm mb-4">Temuan benda cagar budaya berupa perahu berbahan besi peninggalan zaman kolonial di dasar Bengawan Solo.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Arkeologi</span>
+                        <a href="perahu-besi.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Detail</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-    <main class="container mx-auto py-16 px-4">
-        
-        <div class="text-center mb-12" id="daftar">
-            <h2 class="text-3xl font-bold border-b-4 border-amber-600 inline-block pb-2">Daftar Objek Diduga Cagar Budaya</h2>
+        <!-- Bagian ODCB -->
+        <div class="text-center mb-12 mt-20">
+            <h2 class="text-3xl font-bold border-b-4 border-amber-600 inline-block pb-2">Objek Diduga Cagar Budaya</h2>
         </div>
 
-        <!-- Cards Grid -->
-    <section class="relative w-full overflow-hidden py-8">
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-6 scrollbar-hide outline-none">
-            
-            <!-- Site 1: Stasiun Bojonegoro -->
-            <div class="min-w-full md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
-                <img src="/images/stasiun.jpg" alt="Rumah Tua Padangan" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-amber-800">Stasiun Bojonegoro</h3>
-                    <p class="text-stone-600 text-sm mb-4"> Stasiun ini merupakan saksi bisu perkembangan transportasi dan denyut nadi perekonomian di wilayah Bojonegoro sejak awal abad ke-20 hingga saat ini.</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Sejarah dan Budaya</span>
-                    <a href="stasiun.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+        <!-- Container Khusus Carousel agar tidak merusak lebar halaman -->
+        <div class="w-full overflow-hidden relative">
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide">
+                
+                <!-- Card 1: Stasiun -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/stasiun.jpg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Stasiun Bojonegoro</h3>
+                        <p class="text-stone-600 text-sm mb-4">Saksi bisu perkembangan transportasi sejak awal abad ke-20.</p>
+                        <a href="stasiun.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                    </div>
                 </div>
-            </div>
-             <!-- Site 3: Perahu Kuno -->
-            <div class="min-w-full md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
-                <img src="/images/galeribengawan.jpeg" alt="Perahu Kuno" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-amber-800">Perahu Kuno</h3>
-                    <p class="text-stone-600 text-sm mb-4">Koleksi perahu kayu kuno yang kini dilestarikan di Galeri Bengawan. Menjadi saksi bisu jalur transportasi utama masyarakat Jawa jaman dahulu.</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Objek Diduga Cagar Budaya (ODCB)</span>
-                     <a href="perahu-kuno.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+
+                <!-- Card 2: Perahu Kuno -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/galeribengawan.jpeg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Perahu Kuno</h3>
+                        <p class="text-stone-600 text-sm mb-4">Koleksi perahu kayu kuno peninggalan tahun 1612 di Galeri Bengawan.</p>
+                        <a href="perahu-kuno.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                    </div>
                 </div>
-            </div>
-            <!-- Site 2: Gedung KPP Pratama Bojonegoro -->
-           <div class="min-w-full md:min-w-[calc(33.333%-22px)] bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
-                <img src="/images/kpppratama.png" alt="Rumah Tua Padangan" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-amber-800">Gedung KPP Pratama Bojonegoro</h3>
-                    <p class="text-stone-600 text-sm mb-4"> Merupakan salah satu aset arsitektur kolonial yang masih berdiri kokoh di pusat administrasi Kabupaten Bojonegoro. Bangunan ini mewakili tipologi arsitektur perkantoran awal abad ke-20 yang memadukan estetika Eropa dengan adaptasi iklim tropis.</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Sejarah dan Budaya</span>
-                    <a href="kpppratama.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+
+                <!-- Card 3: KPP Pratama -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/kpppratama.png" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Gedung KPP Pratama</h3>
+                        <p class="text-stone-600 text-sm mb-4">Arsitektur kolonial tiga wajah yang masih berdiri kokoh di pusat kota.</p>
+                        <a href="kpppratama.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                    </div>
                 </div>
-            </div>
-              <!-- Site 3: Gedung Kecamatan Bubulan Bojonegoro -->
-           <div class="min-w-full md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
-                <img src="/images/bubulan.png" alt="Kantor Kecamatan Bubulan" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-amber-800">Kantor Kecamatan Bubulan</h3>
-                    <p class="text-stone-600 text-sm mb-4"> Sebagai Objek Diduga Cagar Budaya (ODCB), struktur ini menjadi saksi bisu perkembangan tata kelola wilayah dan pusat pelayanan masyarakat yang telah bertahan selama lebih dari setengah abad.</p>
-                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded">Sejarah dan Budaya</span>
-                    <a href="bubulan.html" class="inline-block bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Lihat Detail</a>
+
+                <!-- Card 4: Bubulan -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/bubulan.png" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Kecamatan Bubulan</h3>
+                        <p class="text-stone-600 text-sm mb-4">Bangunan satu lantai beratap perisai dengan brankas permanen di dalamnya.</p>
+                        <a href="bubulan.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
         <!-- About Section -->
         <section id="tentang" class="mt-20 bg-stone-200 p-8 rounded-2xl">
@@ -121,10 +121,7 @@
                 <div class="md:w-1/2 mb-8 md:mb-0 px-4">
                     <h2 class="text-3xl font-bold mb-4 text-amber-900">Tentang Cagar Budaya</h2>
                     <p class="leading-relaxed text-stone-700">
-                        Kabupaten Bojonegoro memiliki kekayaan budaya yang luar biasa. Website ini didedikasikan sebagai sarana edukasi mengenai pentingnya menjaga situs sejarah (Cagar Budaya) sebagai identitas bangsa.
-                    </p>
-                    <p class="mt-4 leading-relaxed text-stone-700 font-semibold italic">
-                        "Bangsa yang besar adalah bangsa yang menghargai sejarahnya."
+                        Kabupaten Bojonegoro memiliki kekayaan budaya yang luar biasa. Website ini didedikasikan sebagai sarana edukasi mengenai pentingnya menjaga situs sejarah.
                     </p>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
@@ -132,9 +129,8 @@
                 </div>
             </div>
         </section>
-    </main>
+    </main> <!-- Penutup MAIN yang benar -->
 
-<div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 </body>
-
 </html>
