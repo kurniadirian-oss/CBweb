@@ -13,8 +13,10 @@
             background-size: cover;
             background-position: center;
         }
-        /* Tambahan untuk memastikan tidak ada scroll horizontal liar */
+        /* Memastikan scroll halus dan menyembunyikan scrollbar */
         body { overflow-x: hidden; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans">
@@ -32,12 +34,13 @@
     <!-- Main Content -->
     <main class="container mx-auto py-16 px-4">
         
+        <!-- BAGIAN 1: CAGAR BUDAYA (GRID) -->
         <div class="text-center mb-12" id="daftar">
             <h2 class="text-3xl font-bold border-b-4 border-amber-600 inline-block pb-2">Daftar Cagar Budaya</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Site 1 -->
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+            <!-- Site 1: Rumah Tua -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
                 <img src="/images/rumah-tua.jpeg" alt="Rumah Tua Padangan" class="w-full h-48 object-cover">
                 <div class="p-6">
@@ -50,7 +53,7 @@
                 </div>
             </div>
 
-            <!-- Site 2 -->
+            <!-- Site 2: Perahu Besi -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200 transition transform hover:scale-105">
                 <img src="/images/perahubesi.jpg" alt="Perahu Besi Ngraho" class="w-full h-48 object-cover">
                 <div class="p-6">
@@ -64,54 +67,114 @@
             </div>
         </div>
 
-        <!-- Bagian ODCB -->
-        <div class="text-center mb-12 mt-20">
+        <!-- BAGIAN 2: ODCB (CAROUSEL/HORIZONTAL SCROLL) -->
+        <div class="text-center mb-12">
             <h2 class="text-3xl font-bold border-b-4 border-amber-600 inline-block pb-2">Objek Diduga Cagar Budaya</h2>
         </div>
 
-        <!-- Container Khusus Carousel agar tidak merusak lebar halaman -->
-        <div class="w-full overflow-hidden relative">
+        <div class="w-full overflow-hidden relative mb-20">
             <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide">
                 
-                <!-- Card 1: Stasiun -->
+                <!-- 1. Stasiun Bojonegoro -->
                 <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
                     <img src="/images/stasiun.jpg" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2 text-amber-800">Stasiun Bojonegoro</h3>
-                        <p class="text-stone-600 text-sm mb-4">Saksi bisu perkembangan transportasi sejak awal abad ke-20.</p>
-                        <a href="stasiun.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                        <p class="text-stone-600 text-sm mb-4">Saksi bisu perkembangan transportasi dan denyut nadi ekonomi sejak 1902.</p>
+                        <a href="stasiun.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
                     </div>
                 </div>
 
-                <!-- Card 2: Perahu Kuno -->
+                <!-- 2. Perahu Kuno -->
                 <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
                     <img src="/images/galeribengawan.jpeg" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2 text-amber-800">Perahu Kuno</h3>
-                        <p class="text-stone-600 text-sm mb-4">Koleksi perahu kayu kuno peninggalan tahun 1612 di Galeri Bengawan.</p>
-                        <a href="perahu-kuno.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Perahu Kuno Padang</h3>
+                        <p class="text-stone-600 text-sm mb-4">Koleksi perahu kayu langka dari tahun 1612 yang ditemukan tertimbun lumpur.</p>
+                        <a href="perahu-kuno.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
                     </div>
                 </div>
 
-                <!-- Card 3: KPP Pratama -->
+                <!-- 3. KPP Pratama -->
                 <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
                     <img src="/images/kpppratama.png" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2 text-amber-800">Gedung KPP Pratama</h3>
-                        <p class="text-stone-600 text-sm mb-4">Arsitektur kolonial tiga wajah yang masih berdiri kokoh di pusat kota.</p>
-                        <a href="kpppratama.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                        <p class="text-stone-600 text-sm mb-4">Gedung kolonial dengan keunikan arsitektur "Tiga Wajah" di pusat kota.</p>
+                        <a href="kpppratama.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
                     </div>
                 </div>
 
-                <!-- Card 4: Bubulan -->
+                <!-- 4. Waduk Pacal -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/wadukpacal.jpg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Waduk Pacal</h3>
+                        <p class="text-stone-600 text-sm mb-4">Mahakarya irigasi Ir. Van Schravendijk tahun 1933 yang masih kokoh beroperasi.</p>
+                        <a href="wadukpacal.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 5. Pegadaian Padangan -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/pegadaian.png" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Pegadaian Padangan</h3>
+                        <p class="text-stone-600 text-sm mb-4">Gedung klasik tahun 1911 dengan detail besi tempa asli era kolonial.</p>
+                        <a href="pegadaianpadangan.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 6. Polsek Padangan -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/polsekpadangan.jpg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Polsek Padangan</h3>
+                        <p class="text-stone-600 text-sm mb-4">Eks pabrik tenun tahun 1941 yang bertransformasi menjadi markas keamanan.</p>
+                        <a href="polsekpadangan.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 7. Pillbox Kaliketek -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/pillbox.png" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Pillbox Kaliketek</h3>
+                        <p class="text-stone-600 text-sm mb-4">Bungker pertahanan Jepang tahun 1942 di bawah jembatan Kaliketek.</p>
+                        <a href="pillbox.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 8. Kubur Kalang -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/kuburkalang.jpg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Kubur Kalang</h3>
+                        <p class="text-stone-600 text-sm mb-4">Situs pemakaman batu megalitik unik di kawasan karst Tanggir & Kawengan.</p>
+                        <a href="kalangtanggir.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 9. Polsek Sumberrejo -->
+                <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
+                    <img src="/images/polseksumberrejo.jpg" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Polsek Sumberrejo</h3>
+                        <p class="text-stone-600 text-sm mb-4">Bangunan hunian kolonial di pusat ekonomi wilayah timur Bojonegoro.</p>
+                        <a href="polseksumberrejo.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
+                    </div>
+                </div>
+
+                <!-- 10. Bubulan -->
                 <div class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-lg shadow-lg overflow-hidden border border-stone-200">
                     <img src="/images/bubulan.png" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2 text-amber-800">Kecamatan Bubulan</h3>
-                        <p class="text-stone-600 text-sm mb-4">Bangunan satu lantai beratap perisai dengan brankas permanen di dalamnya.</p>
-                        <a href="bubulan.html" class="text-red-900 font-bold hover:underline">Lihat Detail →</a>
+                        <h3 class="font-bold text-lg mb-2 text-amber-800">Rumah Dinas Bubulan</h3>
+                        <p class="text-stone-600 text-sm mb-4">Arsitektur beratap perisai dengan peninggalan brankas besi permanen.</p>
+                        <a href="bubulan.html" class="text-red-900 font-bold hover:underline italic">Lihat Detail →</a>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -121,7 +184,10 @@
                 <div class="md:w-1/2 mb-8 md:mb-0 px-4">
                     <h2 class="text-3xl font-bold mb-4 text-amber-900">Tentang Cagar Budaya</h2>
                     <p class="leading-relaxed text-stone-700">
-                        Kabupaten Bojonegoro memiliki kekayaan budaya yang luar biasa. Website ini didedikasikan sebagai sarana edukasi mengenai pentingnya menjaga situs sejarah (Cagar Budaya) sebagai identitas bangsa.
+                        Kabupaten Bojonegoro memiliki kekayaan budaya yang luar biasa. Website ini didedikasikan sebagai sarana edukasi mengenai pentingnya menjaga situs sejarah sebagai identitas bangsa.
+                    </p>
+                    <p class="mt-4 leading-relaxed text-stone-700 font-semibold italic">
+                        "Bangsa yang besar adalah bangsa yang menghargai sejarahnya."
                     </p>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
@@ -129,7 +195,7 @@
                 </div>
             </div>
         </section>
-    </main> <!-- Penutup MAIN -->
+    </main>
 
     <div id="footer-placeholder"></div>
 </body>
