@@ -27,51 +27,117 @@
             </div>
         </div>
     </main>
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800">Hubungi Kami</h2>
+
+    <div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-lg border border-slate-100 animate-fadeIn">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Laporan Penemuan</h2>
+            <p class="text-slate-500 mt-2 text-sm">Informasi Anda sangat berharga bagi kami.</p>
+        </div>
         
-        <!-- Form Start -->
-        <form id="gform" 
+        <!-- Form Integrasi Google Form -->
+        <form id="laporanForm" 
               action="https://docs.google.com/forms/d/e/1FAIpQLSdFp5Kx7X5t96_QoM9vEa0HnS7_T0H0v_L8S8Yx1L5fR5_A-A/formResponse" 
               method="POST">
             
-            <!-- Input Nama -->
-            <div class="mb-4">
-                <label class="block text-gray-700 font-semibold mb-2">Nama</label>
-                <input type="text" 
-                       name="entry.2005620554" 
-                       placeholder="Masukkan nama Anda"
-                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                       required>
-            </div>
+            <div class="space-y-5">
+                <!-- Field 1: Nama -->
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Nama Lengkap</label>
+                    <input type="text" name="entry.2005620554" 
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all duration-200" 
+                           placeholder="Contoh: Budi Santoso" required>
+                </div>
 
-            <!-- Input Email -->
-            <div class="mb-4">
-                <label class="block text-gray-700 font-semibold mb-2">Email</label>
-                <input type="email" 
-                       name="entry.1045781291" 
-                       placeholder="email@contoh.com"
-                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                       required>
-            </div>
+                <!-- Field 2: Alamat -->
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Alamat Domisili</label>
+                    <input type="text" name="entry.1045781291" 
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all duration-200" 
+                           placeholder="Jl. Merdeka No. 123, Jakarta" required>
+                </div>
 
-            <!-- Input Pesan -->
-            <div class="mb-6">
-                <label class="block text-gray-700 font-semibold mb-2">Pesan</label>
-                <textarea name="entry.839337160" 
-                          rows="4" 
-                          placeholder="Tulis pesan Anda..."
-                          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                          required></textarea>
-            </div>
+                <!-- Field 3: Nomor HP -->
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Nomor HP / WhatsApp</label>
+                    <input type="tel" name="entry.1472855513" 
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all duration-200" 
+                           placeholder="08123456XXXX" required>
+                </div>
 
-            <button type="submit" 
-                    id="submitBtn"
-                    class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-                Kirim Pesan
-            </button>
+                <!-- Field 4: Laporan/Pesan -->
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Detail Laporan Penemuan</label>
+                    <textarea name="entry.839337160" rows="4" 
+                              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all duration-200" 
+                              placeholder="Ceritakan apa yang Anda temukan secara detail..." required></textarea>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="submit" id="btnSubmit"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center">
+                    <span>Kirim Laporan</span>
+                </button>
+            </div>
         </form>
-        <!-- Form End -->
+
+        <!-- Elemen Sukses (Hidden Secara Default) -->
+        <div id="successUi" class="hidden text-center py-10 animate-fadeIn">
+            <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-800">Berhasil Dikirim!</h3>
+            <p class="text-slate-500 mt-2">Terima kasih atas laporan Anda. Data telah tercatat di sistem kami.</p>
+            <button onclick="window.location.reload()" class="mt-8 text-indigo-600 font-bold hover:text-indigo-800 underline underline-offset-4">
+                Kirim Laporan Lainnya
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('laporanForm');
+        const btn = document.getElementById('btnSubmit');
+        const successUi = document.getElementById('successUi');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Animasi Loading
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Mengirim Data...
+            `;
+
+            const formData = new FormData(form);
+            
+            // Pengiriman via Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Penting untuk bypass CORS Google Form
+            }).then(() => {
+                // Sembunyikan form, tampilkan pesan sukses
+                form.classList.add('hidden');
+                successUi.classList.remove('hidden');
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Gagal mengirim data. Pastikan koneksi internet aktif.');
+                btn.disabled = false;
+                btn.innerHTML = 'Kirim Laporan';
+            });
+        });
+    </script>
 
         <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-center font-medium">
             Pesan Anda berhasil terkirim!
