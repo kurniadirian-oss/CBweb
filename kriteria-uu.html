@@ -13,6 +13,7 @@
 
     <main class="container mx-auto py-16 px-4 max-w-4xl">
         <h2 class="text-3xl font-bold text-amber-900 mb-8 border-b-2 border-amber-600 pb-2">Kriteria Cagar Budaya</h2>
+        
         <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200 prose prose-amber">
             <p class="text-lg font-semibold mb-4 text-stone-600 italic">Berdasarkan Undang-Undang Nomor 11 Tahun 2010 Pasal 5:</p>
             <p>Benda, bangunan, atau struktur dapat ditetapkan sebagai Cagar Budaya apabila memenuhi kriteria:</p>
@@ -22,77 +23,22 @@
                 <li><strong>Memiliki arti khusus bagi sejarah, ilmu pengetahuan, pendidikan, agama, dan/atau kebudayaan; dan</strong></li>
                 <li><strong>Memiliki nilai budaya bagi penguatan kepribadian bangsa.</strong></li>
             </ol>
+            
             <div class="mt-10 p-4 bg-amber-50 border-l-4 border-amber-600 italic">
                 "Cagar Budaya adalah warisan budaya bersifat kebendaan yang perlu dilestarikan keberadaannya karena memiliki nilai penting bagi umat manusia."
             </div>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
-        <h2 class="text-2xl font-bold text-center text-indigo-700 mb-6">Laporan Penemuan</h2>
-        
-        <form id="formLaporan">
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
-                    <input type="text" name="nama" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
-                </div>
 
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Alamat</label>
-                    <input type="text" name="alamat" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Nomor HP</label>
-                    <input type="tel" name="hp" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Laporan Penemuan</label>
-                    <textarea name="laporan" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required></textarea>
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
-                    Kirim Laporan
-                </button>
-            </div>
-        </form>
-
-        <div id="notifSukses" class="hidden text-center py-8">
-            <h3 class="text-xl font-bold text-green-600">Berhasil Terkirim!</h3>
-            <p class="text-slate-500 mt-2">Data telah dicatat langsung di Spreadsheet.</p>
-            <button onclick="window.location.reload()" class="mt-4 text-indigo-600 underline">Kirim laporan lain</button>
+        <!-- Bagian Tambahan: Tautan Pelaporan -->
+        <div class="mt-12 p-8 bg-white rounded-xl shadow-md border border-stone-200 text-center">
+            <h3 class="text-xl font-bold text-stone-800 mb-4">Menemukan Objek yang Memenuhi Kriteria di Atas?</h3>
+            <p class="text-stone-600 mb-6">Partisipasi masyarakat sangat penting dalam pelestarian budaya. Jika Anda menemukan objek yang diduga sebagai cagar budaya, silakan laporkan melalui tautan di bawah ini:</p>
+            <a href="https://tinyurl.com/formodcbbjn" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-700 hover:bg-amber-800 transition duration-150 ease-in-out shadow-lg">
+                <i class="fas fa-clipboard-list mr-2"></i>
+                Formulir Pelaporan Objek Diduga Cagar Budaya
+            </a>
         </div>
-    </div>
-
-    <script>
-        const scriptURL = 'URL_WEB_APP_ANDA'; // <--- GANTI DENGAN URL DARI LANGKAH 2
-        const form = document.getElementById('formLaporan');
-        const btn = document.getElementById('submitBtn');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.innerText = 'Sedang Mengirim...';
-
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form)
-            })
-            .then(response => {
-                form.classList.add('hidden');
-                document.getElementById('notifSukses').classList.remove('hidden');
-                console.log('Success!', response);
-            })
-            .catch(error => {
-                alert('Terjadi kesalahan!');
-                btn.disabled = false;
-                btn.innerText = 'Kirim Laporan';
-                console.error('Error!', error.message);
-            });
-        });
-    </script>
     </main>
-    
 
     <div id="footer-placeholder"></div>
 </body>
