@@ -26,33 +26,29 @@
                 "Cagar Budaya adalah warisan budaya bersifat kebendaan yang perlu dilestarikan keberadaannya karena memiliki nilai penting bagi umat manusia."
             </div>
         </div>
-    </main>
-
-<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
-
-    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
         <h2 class="text-2xl font-bold text-center text-indigo-700 mb-6">Laporan Penemuan</h2>
         
         <form id="formLaporan">
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
-                    <input type="text" id="nama" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <input type="text" name="nama" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Alamat</label>
-                    <input type="text" id="alamat" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <input type="text" name="alamat" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Nomor HP</label>
-                    <input type="tel" id="hp" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <input type="tel" name="hp" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Laporan Penemuan</label>
-                    <textarea id="laporan" rows="4" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                    <textarea name="laporan" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required></textarea>
                 </div>
 
                 <button type="submit" id="submitBtn" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
@@ -63,47 +59,40 @@
 
         <div id="notifSukses" class="hidden text-center py-8">
             <h3 class="text-xl font-bold text-green-600">Berhasil Terkirim!</h3>
-            <p class="text-slate-500 mt-2">Data sudah masuk ke Google Sheets.</p>
-            <button onclick="window.location.reload()" class="mt-4 text-indigo-600 underline">Kirim lagi</button>
+            <p class="text-slate-500 mt-2">Data telah dicatat langsung di Spreadsheet.</p>
+            <button onclick="window.location.reload()" class="mt-4 text-indigo-600 underline">Kirim laporan lain</button>
         </div>
     </div>
 
     <script>
+        const scriptURL = 'URL_WEB_APP_ANDA'; // <--- GANTI DENGAN URL DARI LANGKAH 2
         const form = document.getElementById('formLaporan');
         const btn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.disabled = true;
-            btn.innerText = 'Mengirim...';
+            btn.innerText = 'Sedang Mengirim...';
 
-            // Ganti URL ini dengan URL Response Anda
-            const GFORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScKhKQ0Fxuin5H9eLNQuiSsIvH37zM-noczcmphh3i4t3utEA/formResponse";
-
-            // Menggunakan URLSearchParams agar format data sesuai keinginan Google (x-www-form-urlencoded)
-            const params = new URLSearchParams();
-            params.append('entry.1702844111', document.getElementById('nama').value);
-            params.append('entry.1352496738', document.getElementById('alamat').value);
-            params.append('entry.177209935', document.getElementById('hp').value);
-            params.append('entry.1492067451', document.getElementById('laporan').value);
-
-            fetch(GFORM_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: params.toString()
-            }).then(() => {
-                document.getElementById('formLaporan').classList.add('hidden');
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => {
+                form.classList.add('hidden');
                 document.getElementById('notifSukses').classList.remove('hidden');
-            }).catch(err => {
-                alert('Terjadi kesalahan');
+                console.log('Success!', response);
+            })
+            .catch(error => {
+                alert('Terjadi kesalahan!');
                 btn.disabled = false;
+                btn.innerText = 'Kirim Laporan';
+                console.error('Error!', error.message);
             });
         });
     </script>
-</body>
+    </main>
+    
 
     <div id="footer-placeholder"></div>
 </body>
