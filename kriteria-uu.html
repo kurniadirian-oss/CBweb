@@ -28,103 +28,82 @@
         </div>
     </main>
 
-    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg animate-form">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold text-indigo-700">Laporan Penemuan</h2>
-            <p class="text-slate-500 text-sm mt-1">Data akan otomatis tersimpan ke Google Sheets</p>
-        </div>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
+        <h2 class="text-2xl font-bold text-center text-indigo-700 mb-6">Laporan Penemuan</h2>
         
-        <!-- Form Integrasi -->
-        <form id="formLaporan" 
-              action="https://docs.google.com/forms/d/e/1FAIpQLScKhKQ0Fxuin5H9eLNQuiSsIvH37zM-noczcmphh3i4t3utEA/formResponse" 
-              method="POST">
-            
+        <form id="formLaporan">
             <div class="space-y-4">
-                <!-- 1. Nama -->
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
-                    <input type="text" name="entry.1702844111" 
-                           class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" 
-                           placeholder="Nama sesuai KTP" required>
+                    <input type="text" id="nama" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
                 </div>
 
-                <!-- 2. Alamat -->
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Alamat</label>
-                    <input type="text" name="entry.1352496738" 
-                           class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" 
-                           placeholder="Alamat domisili saat ini" required>
+                    <input type="text" id="alamat" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
                 </div>
 
-                <!-- 3. Nomor HP -->
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Nomor HP</label>
-                    <input type="tel" name="entry.177209935" 
-                           class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" 
-                           placeholder="0812xxxxxxxx" required>
+                    <input type="tel" id="hp" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
                 </div>
 
-                <!-- 4. Laporan -->
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Laporan Penemuan / Pesan</label>
-                    <textarea name="entry.1492067451" rows="4" 
-                              class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" 
-                              placeholder="Tuliskan detail laporan Anda..." required></textarea>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Laporan Penemuan</label>
+                    <textarea id="laporan" rows="4" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
                 </div>
 
-                <button type="submit" id="submitBtn"
-                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-lg shadow-indigo-200 transition duration-300 transform active:scale-95 flex items-center justify-center">
+                <button type="submit" id="submitBtn" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
                     Kirim Laporan
                 </button>
             </div>
         </form>
 
-        <!-- Notifikasi Sukses -->
         <div id="notifSukses" class="hidden text-center py-8">
-            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-slate-800">Laporan Terkirim!</h3>
-            <p class="text-slate-500 mt-2">Terima kasih, informasi Anda telah berhasil kami simpan.</p>
-            <button onclick="window.location.reload()" class="mt-6 text-indigo-600 font-semibold hover:underline">Kirim Kembali</button>
+            <h3 class="text-xl font-bold text-green-600">Berhasil Terkirim!</h3>
+            <p class="text-slate-500 mt-2">Data sudah masuk ke Google Sheets.</p>
+            <button onclick="window.location.reload()" class="mt-4 text-indigo-600 underline">Kirim lagi</button>
         </div>
     </div>
 
     <script>
         const form = document.getElementById('formLaporan');
         const btn = document.getElementById('submitBtn');
-        const notif = document.getElementById('notifSukses');
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            
-            // Indikator Loading
             btn.disabled = true;
-            btn.innerHTML = `
-                <svg class="animate-spin h-5 w-5 mr-3 border-2 border-white border-t-transparent rounded-full" viewBox="0 0 24 24"></svg>
-                Mengirim...
-            `;
+            btn.innerText = 'Mengirim...';
 
-            const data = new FormData(form);
-            
-            // Proses kirim ke Google Form
-            fetch(form.action, {
+            // Ganti URL ini dengan URL Response Anda
+            const GFORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScKhKQ0Fxuin5H9eLNQuiSsIvH37zM-noczcmphh3i4t3utEA/formResponse";
+
+            // Menggunakan URLSearchParams agar format data sesuai keinginan Google (x-www-form-urlencoded)
+            const params = new URLSearchParams();
+            params.append('entry.1702844111', document.getElementById('nama').value);
+            params.append('entry.1352496738', document.getElementById('alamat').value);
+            params.append('entry.177209935', document.getElementById('hp').value);
+            params.append('entry.1492067451', document.getElementById('laporan').value);
+
+            fetch(GFORM_URL, {
                 method: 'POST',
-                body: data,
-                mode: 'no-cors'
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: params.toString()
             }).then(() => {
-                // Sembunyikan form dan tampilkan sukses
-                form.classList.add('hidden');
-                notif.classList.remove('hidden');
-            }).catch(() => {
-                alert('Terjadi kesalahan. Silakan cek koneksi Anda.');
+                document.getElementById('formLaporan').classList.add('hidden');
+                document.getElementById('notifSukses').classList.remove('hidden');
+            }).catch(err => {
+                alert('Terjadi kesalahan');
                 btn.disabled = false;
-                btn.innerText = 'Kirim Laporan';
             });
         });
     </script>
+</body>
 
     <div id="footer-placeholder"></div>
 </body>
