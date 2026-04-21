@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <!-- Menu Section (Kanan) -->
             <div class="flex items-center space-x-2 md:space-x-6 shrink-0">
                 <a href="index.html" class="hidden sm:block hover:text-amber-200 transition text-sm font-medium">Beranda</a>
-                <a href="kriteria-uu.html" class="bg-amber-700 hover:bg-amber-600 px-2 py-1.5 md:px-4 md:py-2 rounded text-[10px] md:text-xs font-bold uppercase tracking-tighter border border-amber-500/50 transition whitespace-nowrap shadow-sm">
+                <a href="kriteria-uu.html" class="bg-amber-700 hover:bg-amber-600 px-2 py-1.5 md:px-4 md:py-2 rounded text-[10px] md:text-xs font-bold tracking-tighter border border-amber-500/50 transition whitespace-nowrap shadow-sm">
                     Tentang Cagar Budaya
                 </a>
             </div>
